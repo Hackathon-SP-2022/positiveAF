@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:positive_af/database_service.dart';
+import 'package:positive_af/pages/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -71,13 +72,15 @@ class _LoginPageState extends State<LoginPage> {
                           bool shouldNavigate = await UserLoginIn(
                               _emailField.text, _passwordField.text);
                         },
-                        child: const Text("Login"),
+                        child: const Text("Sign Up"),
                       ),
                     ),
                     Container(
                         // add sign in with Google
                         ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         const Text("Don't have account?"),
                         TextButton(
@@ -85,13 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                             'Sign Up',
                           ),
                           onPressed: () {
-                            //signup screen
-                            // add route to sign up page
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => const SignUpPage()),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignUpPage()),
+                            );
                           },
                         ),
                         TextButton(
