@@ -19,12 +19,18 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/login1.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 margin: const EdgeInsets.all(25),
-                padding: const EdgeInsets.only(top: 1, bottom: 1),
+                padding: const EdgeInsets.only(top: 20, bottom: 20, left: 10, right:10),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Color.fromARGB(234, 255, 255, 255),
@@ -35,6 +41,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       "Sign Up",
                       textAlign: TextAlign.center,
                       // add custom font
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 50,
+                        fontFamily: 'Indies',
+                      ),
                       // add moto
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
