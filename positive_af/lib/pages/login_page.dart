@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                           bool shouldNavigate = await UserLoginIn(
                               _emailField.text, _passwordField.text);
                         },
-                        child: const Text("Sign Up"),
+                        child: const Text("Login"),
                       ),
                     ),
                     Container(
