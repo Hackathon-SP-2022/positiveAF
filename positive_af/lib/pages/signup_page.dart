@@ -93,7 +93,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         onPressed: () async {
                           bool shouldNavigate =
-                              await createAccount(_email.text, _password.text);
+                              await DatabaseService.createAccount(_email.text, _password.text);
                         },
                         child: const Text("Sign Up"),
                       ),
