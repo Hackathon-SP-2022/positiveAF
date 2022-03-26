@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:positive_af/database_service.dart';
 import 'package:positive_af/pages/signup_page.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -30,7 +31,8 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                 margin: const EdgeInsets.all(25),
-                padding: const EdgeInsets.only(top: 20, bottom: 20, left: 10, right:10),
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 10, right: 10),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Color.fromARGB(234, 255, 255, 255),
@@ -64,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       child: TextFormField(
                         controller: _passwordField,
+                        obscureText: true,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Password',
@@ -89,8 +92,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Container(
-                        // add sign in with Google
-                        ),
+                      child: SignInButton(
+                        Buttons.Google,
+                        text: "Sign in with Google",
+                        onPressed: () async {
+                          // bool shouldNavigate = await signInWithGoogle();
+                        },
+                      ),
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
