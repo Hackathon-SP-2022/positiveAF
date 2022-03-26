@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:positive_af/pages/set_reminders.dart';
 import 'package:positive_af/pages/submit_af.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -13,8 +12,7 @@ class _NavigtionPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
   final pageOptions = [
     const HomePage(),
-    // const SubmitAF()
-    const SetRemindersPage(),
+    const SubmitAF()
     // const ProfilePage(),
   ];
 
@@ -46,7 +44,7 @@ class _NavigtionPageState extends State<NavigationPage> {
           //     icon: Icons(Icons.account_circle_outlined), label: 'Profile'),
         ],
         currentIndex: _selectedIndex,
-        // onTap: _onItemTapped,
+        onTap: _onItemTapped,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
       ),
@@ -70,13 +68,23 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.purple,
         automaticallyImplyLeading: false,
         title: const Text("Have An Amazing Day!"),
+        actions: <Widget>[
+          IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const NavigationPage())));
+              })
+        ],
       ),
       body: ListView.builder(
           itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-                leading: Icon(Icons.list),
-                trailing: Text(
+                leading: const Icon(Icons.list),
+                trailing: const Text(
                   "GFG",
                   style: TextStyle(color: Colors.green, fontSize: 15),
                 ),
