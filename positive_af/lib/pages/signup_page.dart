@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:positive_af/database_service.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -90,8 +91,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        onPressed: () async {},
-                        child: const Text("Login"),
+                        onPressed: () async {
+                          bool shouldNavigate =
+                              await createAccount(_email.text, _password.text);
+                        },
+                        child: const Text("Sign Up"),
                       ),
                     ),
                     Container(

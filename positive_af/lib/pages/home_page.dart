@@ -1,1 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:positive_af/pages/set_reminders.dart';
+
+class NavigationPage extends StatefulWidget {
+  const NavigationPage({Key? key}) : super(key: key);
+
+  @override
+  _NavigtionPageState createState() => _NavigtionPageState();
+}
+
+class _NavigtionPageState extends State<NavigationPage> {
+  int _selectedIndex = 0;
+  final pageOptions = [
+    const HomePage(),
+    // const SubmitAF()
+    const SetRemindersPage(),
+    // const ProfilePage(),
+  ];
+
+  // void _onItemTapped(int index) {
+  //   if(index == 1){
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(builder: (((context) => const SubmitAF()))
+  //     );
+  //   } else {
+  //     setState(() {
+  //       _selectedIndex = index;
+  //     });
+  //   }
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: pageOptions[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        iconSize: 30,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.format_align_center), label: 'Add AF'),
+          // BottomNavigationBarItem(
+          //     icon: Icons(Icons.add_circle_outlined_rounded), label: 'Set Reminder'),
+          // BottomNavigationBarItem(
+          //     icon: Icons(Icons.account_circle_outlined), label: 'Profile'),
+        ],
+        currentIndex: _selectedIndex,
+        // onTap: _onItemTapped,
+        selectedItemColor: const Color.fromARGB(255, 174, 89, 189),
+        unselectedItemColor: Colors.grey,
+      ),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
