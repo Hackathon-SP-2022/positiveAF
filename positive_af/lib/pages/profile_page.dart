@@ -37,15 +37,23 @@ class _ProfilePageState extends State<ProfilePage> {
           children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(10,15.0, 10, 10),
-            child: Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30)
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                    'https://media4.giphy.com/media/l044ryXnF70Al3sMts/giphy.gif?cid=ecf05e47mcv2jdnrysc57b006jmygrcv27bgw1opoj0nlovc&rid=giphy.gif&ct=g'),
+            child: ConstrainedBox(
+              //color: Colors.transparent,
+              constraints: BoxConstraints (maxHeight: 300, maxWidth: 400),
+              child: Card(
+                semanticContainer: true,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                      'https://media4.giphy.com/media/l044ryXnF70Al3sMts/giphy.gif?cid=ecf05e47mcv2jdnrysc57b006jmygrcv27bgw1opoj0nlovc&rid=giphy.gif&ct=g',
+                    fit: BoxFit.scaleDown,
+
+                  ),
+                ),
               ),
             ),
           ),
