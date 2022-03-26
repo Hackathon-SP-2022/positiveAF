@@ -10,10 +10,7 @@ class ForgotPassPage extends StatefulWidget {
 
 class _ForgotPassPageState extends State<ForgotPassPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _username = TextEditingController();
   final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
-  final TextEditingController _confirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,47 +36,39 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
                 child: Column(
                   children: [
                     const Text(
-                      "Sign Up",
+                      "Reset Password",
                       textAlign: TextAlign.center,
                       // add custom font
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 50,
+                        fontSize: 40,
                         fontFamily: 'Indies',
                       ),
                       // add moto
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                    const Text(
+                      "A link will be sent to your email.",
+                      textAlign: TextAlign.center,
+                      // add custom font
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontSize: 20,
+                        // fontFamily: 'Indies',
+                      ),
+                      // add moto
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     Container(
                       child: TextFormField(
                         controller: _email,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'something@gmail.com',
                           labelText: 'Email',
                         ),
                       ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Container(
-                      child: TextFormField(
-                        controller: _password,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Container(
-                      child: TextFormField(
-                        controller: _confirmPassword,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Confirm Password',
-                        ),
-                      ),
-                    ),
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(10),
@@ -92,14 +81,11 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         onPressed: () async {
-                          bool shouldNavigate =
-                          await createAccount(_email.text, _password.text);
+                          // bool shouldNavigate =
+                          // await DatabaseService.createAccount(_email.text, _password.text);
                         },
-                        child: const Text("Sign Up"),
+                        child: const Text("Reset"),
                       ),
-                    ),
-                    Container(
-                      // add sign in with Google
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
