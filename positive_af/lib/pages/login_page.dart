@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         onPressed: () async {
-                          bool shouldNavigate = await UserLoginIn(
+                          bool shouldNavigate = await DatabaseService.userLogin(
                               _emailField.text, _passwordField.text);
                         },
                         child: const Text("Sign Up"),
