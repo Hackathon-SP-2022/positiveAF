@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:positive_af/pages/set_reminders.dart';
+import 'package:positive_af/pages/submit_af.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({Key? key}) : super(key: key);
@@ -17,24 +18,23 @@ class _NavigtionPageState extends State<NavigationPage> {
     // const ProfilePage(),
   ];
 
-  // void _onItemTapped(int index) {
-  //   if(index == 1){
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(builder: (((context) => const SubmitAF()))
-  //     );
-  //   } else {
-  //     setState(() {
-  //       _selectedIndex = index;
-  //     });
-  //   }
-  // }
+  void _onItemTapped(int index) {
+    if (index == 1) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (((context) => const SubmitAF()))));
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pageOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.purple,
         iconSize: 30,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -47,7 +47,7 @@ class _NavigtionPageState extends State<NavigationPage> {
         ],
         currentIndex: _selectedIndex,
         // onTap: _onItemTapped,
-        selectedItemColor: const Color.fromARGB(255, 174, 89, 189),
+        selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
       ),
     );
@@ -64,6 +64,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.purple,
+        automaticallyImplyLeading: false,
+        title: const Text("Have An Amazing Day!"),
+      ),
+      body: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+                leading: Icon(Icons.list),
+                trailing: Text(
+                  "GFG",
+                  style: TextStyle(color: Colors.green, fontSize: 15),
+                ),
+                title: Text("List item $index"));
+          }),
+    );
   }
 }

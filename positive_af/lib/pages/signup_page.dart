@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:positive_af/database_service.dart';
+import 'package:positive_af/pages/home_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -31,7 +32,8 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               Container(
                 margin: const EdgeInsets.all(25),
-                padding: const EdgeInsets.only(top: 20, bottom: 20, left: 10, right:10),
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 10, right: 10),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Color.fromARGB(234, 255, 255, 255),
@@ -64,6 +66,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     Container(
                       child: TextFormField(
                         controller: _password,
+                        obscureText: true,
+                        onSaved: (value) {
+                          _password.text = value!;
+                        },
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Password',
@@ -74,6 +80,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     Container(
                       child: TextFormField(
                         controller: _confirmPassword,
+                        obscureText: true,
+                        onSaved: (value) {
+                          _confirmPassword.text = value!;
+                        },
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Confirm Password',
@@ -93,7 +103,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         onPressed: () async {
                           bool shouldNavigate =
-                              await DatabaseService.createAccount(_email.text, _password.text);
+                              await DatabaseService.createAccount(
+                                  _email.text, _password.text);
+                          if (shouldNavigate) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          }
                         },
                         child: const Text("Sign Up"),
                       ),
