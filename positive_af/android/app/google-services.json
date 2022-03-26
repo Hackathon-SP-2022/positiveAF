@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "28490766737",
+    "project_id": "positiveaf-fb84e",
+    "storage_bucket": "positiveaf-fb84e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28490766737:android:6177af613ef0b974d72230",
+        "android_client_info": {
+          "package_name": "com.example.positive_af"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28490766737-34ckmg98ah5f9ihk2aokhs0udvbss98h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU9grdW7SV4U2Gz2f9y43vXtiOvHKrrk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28490766737-34ckmg98ah5f9ihk2aokhs0udvbss98h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
